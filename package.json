@@ -1,0 +1,11 @@
+{
+  "name": "lottie2apng",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "node-apng": "tomashubelbauer/node-apng",
+    "puppeteer-lottie": "^1.1.2"
+  }
+}
