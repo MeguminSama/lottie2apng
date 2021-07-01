@@ -24,10 +24,6 @@ const lottie = isGzip(data)
   ? zlib.gunzipSync(data).toString('utf-8')
   : data.toString('utf-8')
 
-const json = JSON.parse(lottie)
-
-const framerate = json.fr
-
 fs.writeFileSync('tmp.json', lottie)
 
 renderLottie({
@@ -37,11 +33,12 @@ renderLottie({
   width: 320
 })
   .then(data => {
-    console.log(data)
     let framenames = []
+
     for (let i = 1; i <= data.numFrames; i++) {
       framenames.push(`${url.name}/frame-${i}.png`)
     }
+
     const images = framenames.map(path => fs.readFileSync(path))
 
     const output = apng(images, index => ({
